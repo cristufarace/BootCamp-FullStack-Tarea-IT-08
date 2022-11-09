@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="./static/css/estilos.css" />
+  </head>
+  <body>
+    <!-- boton que cambia estilos, como lo pide el enunciado -->
+    <div class="section_div-button">
+      <button id="estilos_btn">Cambiar estilos de forma ordenada</button>
+    </div>
+
+    <!-- bonus 1 y 2 -->
+    <section class="Estilos-Bonus">
+      <!-- bonus 1  -->
+      <div class="section_div-button">
+        <p>Estilos Bonus 1:</p>
+        <button id="aleatorio_btn">Cambiar estilos de forma aleatoria</button>
+      </div>
+      <!-- bonus 2  -->
+      <div class="section_div-button">
+        <p>Estilos Bonus 2:</p>
+        <button id="recordar">Recordar</button>
+      </div>
+    </section>
+    <!-- bonus 3 y-->
+    <section class="Estilos-Bonus">
+      <div class="Estilos-Bonus" >
+        <p>Estilos Bonus 3:</p>
+        <select id="Estilos-Bonus-3" name="Estilos-Bonus-3">
+          <option id="OriginalaSelect" value="Original" selected>
+            Original
+          </option>
+          <option id="FuturoaSelect" value="Futuro">Futuro</option>
+          <option id="RetroaSelect" value="Retro">Retro</option>
+          <option id="SinCssaSelect" value="SinCss">Sin css</option>
+        </select>
+      </div>
+    </section>
+     <!-- bonus  4 -->
+     <section class="Estilos-Bonus">
+       <div class="Estilos-Bonus" >
+        <p>Estilos Bonus 4:</p>
+        <input class="estilos-bonus-4" name="estilos-bonus-4" type="radio" id="OriginalaSelect" value="Original">Original</input>
+        <input class="estilos-bonus-4" name="estilos-bonus-4" type="radio" id="FuturoaSelect" value="Futuro">Futuro</input>
+        <input class="estilos-bonus-4" name="estilos-bonus-4" type="radio" id="RetroaSelect" value="Retro">Retro</input>
+        <input class="estilos-bonus-4" name="estilos-bonus-4" type="radio" id="SinCssaSelect" value="SinCss">Sin css</input>
+      </div>
+    </section>
+    <!-- el main contiene todo el html del ejemplo original -->
+    <main>
+      <!-- div que contiene al formulario formulario y titulo -->
+      <div class="contenedor-form">
+        <!-- titulo -->
+        <header>
+          <h1 id="titulo_pagina">Veni al Gym!💪</h1>
+        </header>
+
+        <form id="form_afiliacion">
+          <!-- datos personales -->
+          <fieldset class="fieldset datos-personales">
+            <legend>🙋‍♂️<span>D</span>atos Personales👀</legend>
+            <div class="form_fieldset_div">
+              <label for="Nombre"
+                >Nombre*: <input required name="Nombre" id="Nombre" type="text"
+              /></label>
+              <label for="Apellido"
+                >Apellido*:
+                <input required id="Apellido" name="Apellido" type="text"
+              /></label>
+              <label for="Documento"
+                >Documento*:
+                <input required id="Documento" name="Documento" type="text"
+              /></label>
+
+              <!-- selects nacionalidad datos personales  -->
+              <label for="Nacionalidad"
+                >Nacionalidad*:
+                <select name="Nacionalidad" id="Nacionalidad">
+                  <option value="" disabled selected>-Seleccionar-</option>
+
+                  <option value="Argentina">Argentina</option>
+                  <option value="Brasil">Brasil</option>
+                </select></label
+              >
+
+              <!-- Text Area datos personales -->
+              <label for="Contanos_un_poco_de_vos">
+                Contanos un poco de vos:
+                <textarea
+                  name="Contanos_un_poco_de_vos"
+                  id="Contanos_un_poco_de_vos"
+                  cols="40"
+                  rows="8"
+                ></textarea>
+              </label>
+
+              <!-- Radio Inputs datos personales -->
+              <label>Sexo*:</label>
+              <div class="fieldset_div-radio-inputs">
+                <input
+                  required
+                  id="Femenino"
+                  name="Sexo"
+                  value="Femenino"
+                  type="radio"
+                />
+                <label for="Femenino">Femenino </label>
+                <input
+                  required
+                  checked
+                  id="Masculino"
+                  name="Sexo"
+                  value="Masculino"
+                  type="radio"
+                />
+                <label for="Masculino">Masculino </label>
+                <input
+                  required
+                  id="Otro"
+                  name="Sexo"
+                  value="Otro"
+                  type="radio"
+                />
+                <label for="Otro">Otro </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div>
+            <h1>..........</h1>
+          </div>
+
+          <!-- datos de contacto -->
+          <fieldset class="fieldset contacto">
+            <legend>📱<span>D</span>atos de Conacto✉️</legend>
+            <div class="form_fieldset_div">
+              <label for="Telefono"
+                >Telefono:
+                <input
+                  placeholder="Codigo de area y numero"
+                  name="Telefono"
+                  id="Telefono"
+                  type="text"
+              /></label>
+              <label for="Correo"
+                >Direccion de correo electronico:
+                <input
+                  required
+                  id="Correo"
+                  name="Correo"
+                  type="email"
+                  placeholder="Ej: mail@gmail.com"
+              /></label>
+            </div>
+          </fieldset>
+
+          <div>
+            <h1>..........</h1>
+          </div>
+
+          <!-- actividades -->
+          <fieldset class="fieldset actividades">
+            <legend>🚴<span>A</span>ctividades🤸</legend>
+            <div>
+              <p>Por favor, indicá cuales actividades te interesan</p>
+
+              <label>Sede Palermo:</label>
+              <div class="fieldset_div-checkbox-inputs">
+                <input
+                  id="PalermoBasquet"
+                  name="PalermoBasquet"
+                  value="PalermoBasquet"
+                  type="checkbox"
+                />
+                <label for="PalermoBasquet">Basquet </label>
+                <input
+                  checked
+                  id="PalermoBoxeo"
+                  name="PalermoBoxeo"
+                  value="PalermoBoxeo"
+                  type="checkbox"
+                />
+                <label for="PalermoBoxeo">Boxeo </label>
+                <input
+                  id="PalermoFutbol"
+                  name="PalermoFutbol"
+                  value="PalermoFutbol"
+                  type="checkbox"
+                />
+                <label for="PalermoFutbol">Futbol </label>
+                <input
+                  id="PalermoTenis"
+                  name="PalermoTenis"
+                  value="PalermoTenis"
+                  type="checkbox"
+                />
+                <label for="PalermoTenis">Tenis </label>
+              </div>
+
+              <label>Sede Rosario:</label>
+              <div class="fieldset_div-checkbox-inputs">
+                <input
+                  id="RosarioBasquet"
+                  name="RosarioBasquet"
+                  value="RosarioBasquet"
+                  type="checkbox"
+                />
+                <label for="RosarioBasquet">Basquet </label>
+                <input
+                  checked
+                  id="RosarioBoxeo"
+                  name="RosarioBoxeo"
+                  value="RosarioBoxeo"
+                  type="checkbox"
+                />
+                <label for="RosarioBoxeo">Boxeo </label>
+                <input
+                  id="RosarioFutbol"
+                  name="RosarioFutbol"
+                  value="RosarioFutbol"
+                  type="checkbox"
+                />
+                <label for="RosarioFutbol">Futbol </label>
+                <input
+                  id="RosarioTenis"
+                  name="RosarioTenis"
+                  value="RosarioTenis"
+                  type="checkbox"
+                />
+                <label for="RosarioTenis">Tenis </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- condiciones, novedades,botones Iniciar y Restablecer -->
+          <section>
+            <!-- terminos, novedades-->
+            <div class="section_div-condiciones-y-notificaciones">
+              <!-- condiciones -->
+              <div class="section_div-condiciones-inputs">
+                <input
+                  required
+                  id="Condiciones"
+                  name="Condiciones"
+                  value="Condiciones"
+                  type="checkbox"
+                />
+                <label for="Condiciones">Acepto las condiciones *</label>
+              </div>
+              <!-- notificaciones -->
+              <div class="section_div-condiciones-inputs">
+                <input
+                  checked
+                  id="Notificaciones"
+                  name="Sexo"
+                  value="Notificaciones"
+                  type="checkbox"
+                />
+                <label for="Notificaciones"
+                  >Deseo recibir Notificaciones
+                </label>
+                <br />
+              </div>
+              <!-- textos -->
+              <div class="section_div-condiciones-inputs">
+                <p>Campos obligatorios*</p>
+              </div>
+            </div>
+            <!-- botones -->
+            <div class="section_div-button">
+              <button type="submit">Iniciar Afiliacion</button>
+              <button type="button" id="reestablecer_btn">Restablecer</button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </main>
+
+    <script src="/static/js/js.js"></script>
+  </body>
+</html>

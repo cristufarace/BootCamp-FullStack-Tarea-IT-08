@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Island+Moments&family=Saira+Stencil+One&display=swap');
+:root {
+  --color-fondo: #212022;
+  --color-fondo-sections: #a5bdb9;
+  --color-fuente-header: #ffffff;
+  --color-borde-header: #4b6963;
+  --color-hoover-input: #2d3c39;
+  --color-fondo-botones: #2b3d37;
+  --color-puntos: #a6c1b9;
+}
+/* estilos genericos */
+*{
+  box-sizing: border-box;
+  font-family: 'Saira Stencil One', cursive;
+  letter-spacing: 5px;
+  
+ 
+}
+body {
+  margin: 0;
+  font-family:  'Poppins', sans-serif;
+  color: white;
+  font-weight: bolder;
+  background-image: url("../image/futuro.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+main {
+  width: auto;
+  margin: 0;
+  /* background-color: var(--color-fondo); */
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 3s;
+  animation-name: slidein;
+
+}
+
+  /* boton cambiar estilos */
+  .estilos {
+    text-align: center;
+  }
+
+/* estilos formulario */        
+input,
+textarea,
+select {
+  display: block;
+  border-radius: 5px;
+  border: 1px solid rgb(156, 156, 156);
+  margin: 10px;
+  width: 100%;
+}
+
+input,
+select,
+option {
+  height: 25px;
+}
+
+/* header donde se encuentra el titulo */
+header {
+  text-align: center;
+  border-bottom: 15px solid  rgba(0, 247, 255, 0.5);;;
+  border-top: 15px solid rgba(0, 247, 255, 0.5);;;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  color: var(--color-fuente-header);
+  margin-top: 20px;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+  line-height: 0%;
+  letter-spacing: -3px;
+ 
+  
+}
+
+header > h1 {
+  animation: fadeIn 4s;
+  animation-iteration-count: infinite;
+}
+
+
+input:focus, textarea:focus {
+  background-color: var(--color-hoover-input);
+  color: var(--color-fuente-header);
+}
+/* NOTA....... */
+/* dentro de form hay 3 fieldset y un section */
+.fieldset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  border: 3px solid black;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  /* background-color: rgba(156, 71, 253, 0.8); */
+  background-image: url("../image/D6i.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  border: none;
+  border-radius: 3px;
+  border-radius: 20px;
+}
+
+ label {
+background: rgba(221, 0, 48, 0.5);
+padding: 5px;
+border-radius: 10px;
+margin-bottom: 10px;
+  
+}
+
+legend {
+  background:var(--color-borde-header);
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  padding: 10px;
+  text-transform: uppercase;
+ 
+}
+legend > span {
+    font-size: 140%;
+  }
+
+/* dentro de form hay un fieldset que dentro tiene un div (hay 3 fieldset dentro de form) */
+.form_fieldset_div {
+  padding-left: 70px;
+  padding-right: 70px;
+  text-align: center;
+}
+
+
+/* fieldset contacto y datos personales */
+.contacto, .datos-personales {
+  justify-content: center;
+  padding: 10px;
+  text-align: left;
+}
+
+input[name="Telefono" i], input[name="Correo" i]  {
+  text-align: right; width: 350px 
+ }
+ 
+
+ /* inputs radio de datos personales */
+ .fieldset_div-radio-inputs {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+
+
+/* fieldset actividades */
+.actividades {
+  justify-content: left;
+  padding: 10px;
+  text-align: left;
+ 
+}
+
+/* inputs checkbox de actividades */
+.fieldset_div-checkbox-inputs {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* inputs de las condiciones */
+.section_div-condiciones-inputs {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* botones de submit y reset */
+.section_div-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section_div-button > button {
+  margin: 10px;
+  background-color: var(--color-fondo-botones);
+  color: var(--color-puntos);
+  border: 1px solid var(--color-puntos);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* la parte de las condiciones */
+.section_div-condiciones-y-notificaciones {
+  padding: 10px;
+  text-align: left;
+  color: white;
+}
+
+input[type="checkbox" i] {
+ width: auto;
+}
+
+
+/* puntos separadores */
+div > h1 {
+  color: var(--color-puntos);
+  text-align: center;
+  line-height: 0%;
+  font-size: 600%;
+  margin-top: 0;
+  font-family: 'Times New Roman', Times, serif;
+ 
+}
+/* Estilos-Bonus */
+.Estilos-Bonus {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color:white;
+  padding: 10px;
+}
+
+
+.Estilos-Bonus-1 > button{
+  margin: 10px;
+  background-color: var(--color-fondo-botones);
+  color: var(--color-puntos);
+  border: 1px solid var(--color-puntos);
+  padding: 10px;
+  border-radius: 5px;
+  
+  
+}
+
+
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
