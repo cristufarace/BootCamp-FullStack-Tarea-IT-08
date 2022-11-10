@@ -34,15 +34,14 @@ const inputs = document.getElementsByTagName("input");
 
 // efecto focus de los inputs
 for (let inp = 0; inp < inputs.length; inp++) {
+  console.log(inputs.length);
+  let legend = document.getElementsByTagName("legend");
   inputs[inp].addEventListener("focus", () => {
-    if (inp <= 5) {
-      let legend = document.getElementsByTagName("legend");
+    if (inp <= 6) {
       legend[0].style.background = "#2d3c39";
-    } else if ((inp >= 6) & (inp <= 7)) {
-      let legend = document.getElementsByTagName("legend");
+    } else if ((inp == 10) || (inp ==11)) {
       legend[1].style.background = "#2d3c39";
     } else {
-      let legend = document.getElementsByTagName("legend");
       legend[2].style.background = "#2d3c39";
     }
   });
