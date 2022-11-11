@@ -1,17 +1,18 @@
-// variables
+// variables generales
 let boton = document.getElementById("reestablecer_btn");
 let boton2 = document.getElementById("estilos_btn");
 let btnRecordar = document.getElementById("recordar");
 let legend = document.getElementsByTagName("legend");
 
-// boton reestablecer
+//logica del boton reestablecer
 boton.addEventListener("click", (e) => {
   document.getElementById("form_afiliacion").reset();
   // console.log("reseteando");
 });
-
 let numero = 0;
-// estilos ordenados
+
+
+//logica de estilos ordenados
 boton2.addEventListener("click", () => {
   numero++;
   console.log(numero);
@@ -32,105 +33,75 @@ boton2.addEventListener("click", () => {
   }
 });
 
-// no cambiar fondo de legend, aplicar blur, y aplicar focus si el estilo actual es SIN ESTILOS CSS
+// logica pra cambiar el fondo de etiqueta legen e inputs
+let funcionQueProgramaEfectoBlurAndFocus = (colorFocus, colorBlur) => {
+  // cambiando fondo de legend al desencaddenarse el foco
+  // efecto focus de los inputs
+  const inputs = document.getElementsByTagName("input");
+  for (let inp = 0; inp < inputs.length; inp++) {
+    let legend = document.getElementsByTagName("legend");
+    inputs[inp].addEventListener("focus", () => {
+      if (inp <= 6) {
+        legend[0].style.background = colorFocus;
+      } else if (inp == 10 || inp == 11) {
+        legend[1].style.background = colorFocus;
+      } else {
+        legend[2].style.background = colorFocus;
+      }
+    });
+  }
 
-window.addEventListener("click", () => {
+  // efecto blur de los inputs
+  for (let inp = 0; inp < inputs.length; inp++) {
+    inputs[inp].addEventListener("blur", () => {
+      let legend = document.getElementsByTagName("legend");
+      legend[0].style.background = colorBlur;
+      legend[1].style.background = colorBlur;
+      legend[2].style.background = colorBlur;
+    });
+  }
+
+  // efecto focus textarea
+  const textarea = document.getElementsByTagName("textArea");
+  for (let inp = 0; inp < textarea.length; inp++) {
+    textarea[inp].addEventListener("focus", () => {
+      console.log("se hizo foco");
+      let legend = document.getElementsByTagName("legend");
+      legend[0].style.background = colorFocus;
+    });
+  }
+
+  // efecto blur  textarea
+  for (let inp = 0; inp < textarea.length; inp++) {
+    textarea[inp].addEventListener("blur", () => {
+      let legend = document.getElementsByTagName("legend");
+      legend[0].style.background = colorBlur;
+    });
+  }
+};
+
+// cada vez que se hace clic, se evalua el contenido de la etiqueta link, se llama a la funcion de arriba
+document.addEventListener("click", () => {
   let estilos = document.getElementsByTagName("link")[0].href;
   let sinCss = estilos.includes("sin");
-  console.log(estilos);
-  console.log(sinCss);
 
   // si entra al if es porqe no hay estilos
   if (sinCss === true) {
     legend[0].style.background = "";
     legend[1].style.background = "";
     legend[2].style.background = "";
-
-    const inputs = document.getElementsByTagName("input");
-    for (let inp = 0; inp < inputs.length; inp++) {
-      inputs[inp].addEventListener("focus", () => {
-        legend[0].style.background = "";
-        legend[1].style.background = "";
-        legend[2].style.background = "";
-      });
-    }
-    for (let inp = 0; inp < inputs.length; inp++) {
-      inputs[inp].addEventListener("blur", () => {
-        legend[0].style.background = "";
-        legend[1].style.background = "";
-        legend[2].style.background = "";
-      });
-    }
-
-      // efecto focus textarea
-      const textarea = document.getElementsByTagName("textArea");
-      for (let inp = 0; inp < textarea.length; inp++) {
-        textarea[inp].addEventListener("focus", () => {
-          console.log("se hizo foco");
-          let legend = document.getElementsByTagName("legend");
-          legend[0].style.background = "";
-        });
-      }
-  
-      // efecto blur  textarea
-      for (let inp = 0; inp < textarea.length; inp++) {
-        textarea[inp].addEventListener("blur", () => {
-          let legend = document.getElementsByTagName("legend");
-          legend[0].style.background = "";
-        });
-      }
-    
-    
+    funcionQueProgramaEfectoBlurAndFocus("", "");
   }
   // si entra al else es porque hay estilos, ya sea futuro, retro o originales
   else {
-    // cambiando fondo de legend al desencaddenarse el foco
-    // efecto focus de los inputs
-    const inputs = document.getElementsByTagName("input");
-    for (let inp = 0; inp < inputs.length; inp++) {
-      let legend = document.getElementsByTagName("legend");
-      inputs[inp].addEventListener("focus", () => {
-        if (inp <= 6) {
-          legend[0].style.background = "#2d3c39";
-        } else if (inp == 10 || inp == 11) {
-          legend[1].style.background = "#2d3c39";
-        } else {
-          legend[2].style.background = "#2d3c39";
-        }
-      });
-    }
-
-    // efecto blur de los inputs
-    for (let inp = 0; inp < inputs.length; inp++) {
-      inputs[inp].addEventListener("blur", () => {
-        let legend = document.getElementsByTagName("legend");
-        legend[0].style.background = "#4b6963";
-        legend[1].style.background = "#4b6963";
-        legend[2].style.background = "#4b6963";
-      });
-    }
-
-    // efecto focus textarea
-    const textarea = document.getElementsByTagName("textArea");
-    for (let inp = 0; inp < textarea.length; inp++) {
-      textarea[inp].addEventListener("focus", () => {
-        console.log("se hizo foco");
-        let legend = document.getElementsByTagName("legend");
-        legend[0].style.background = "#2d3c39";
-      });
-    }
-
-    // efecto blur  textarea
-    for (let inp = 0; inp < textarea.length; inp++) {
-      textarea[inp].addEventListener("blur", () => {
-        let legend = document.getElementsByTagName("legend");
-        legend[0].style.background = "#4b6963";
-      });
-    }
+    funcionQueProgramaEfectoBlurAndFocus("#2d3c39", "#4b6963");
   }
-
-  console.log("se hizo clic");
 });
+
+
+
+
+
 
 //-----------------------------------------------Bonus 1 estilos aleatorios
 let aleatorios = document.getElementById("aleatorio_btn");
