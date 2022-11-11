@@ -28,13 +28,59 @@ boton2.addEventListener("click", () => {
   }
 });
 
+
+//-----------------------------------------------Bonus 2 guardo en local----------------------------
+let btnRecordar = document.getElementById("recordar");
+btnRecordar.addEventListener("click",()=> {
+  let btnRecordar = document.getElementById("recordar");
+    // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
+    console.log("Guardo estilos en local");
+    // obtengo el estilo actual
+    let estilos = document.getElementsByTagName("link")[0].href;
+    // guardo en local el estilo actual
+    localStorage.setItem("estiloActual", JSON.stringify(estilos))
+    // cuando se hace clic sobre el botn cambia la opacidad
+    btnRecordar.style.opacity = 0.4
+    console.log("Se guardara en Local el estilo: " + JSON.parse(localStorage.getItem("estiloActual"))) 
+  }
+
+)
+
+// cada vez que carga la aplicacion va a buscar los estilos al local storage
+window.addEventListener("DOMContentLoaded", () => {
+  // hago referencia a la etiqueta link
+  let estilos = document.getElementsByTagName("link")[0];
+  // obtengo el estilo que del local storage
+  let recuperoEstilos = JSON.parse(localStorage.getItem("estiloActual")) ||  estilos.setAttribute("href", "./static/css/estilos.css");
+  // le seteo a link el estilo que recupere del localstorage
+  estilos.setAttribute("href",recuperoEstilos);
+  // le agrego opacidad al boton recordar
+  btnRecordar.style.opacity= 0.4
+  console.log("Window on load. Cargando estilo recordado desde localSt: " + JSON.parse(localStorage.getItem("estiloActual"))); 
+})
+// -------------------------------------------------------fin bonus 2 ----------------------------
+
+
+
+// no cambiar fondo de legend, aplicar blur, y aplicar focus si el estilo actual es SIN ESTILOS CSS
+window.addEventListener("DOMContentLoaded", () => {
+  let estilos = document.getElementsByTagName("link")[0].href
+  let sinCss = estilos.includes("sin")
+  console.log(sinCss);
+
+  // si no tiene una hoja de estilos css no hgas nada
+  if (sinCss == true){
+  }
+  // si tiene alguna hoja de estilos css entonces........
+  else {
+    
+
 // cambiando fondo de legend al desencaddenarse el foco
 const inputs = document.getElementsByTagName("input");
 // console.log(inputs);
 
 // efecto focus de los inputs
 for (let inp = 0; inp < inputs.length; inp++) {
-  console.log(inputs.length);
   let legend = document.getElementsByTagName("legend");
   inputs[inp].addEventListener("focus", () => {
     if (inp <= 6) {
@@ -74,9 +120,10 @@ for (let inp = 0; inp < textarea.length; inp++) {
     legend[0].style.background = "#4b6963";
   });
 }
+  }
+})
 
 
-// bonus
 
 
 
@@ -101,35 +148,6 @@ aleatorios.addEventListener("click", () => {
 });
 
 
-//-----------------------------------------------Bonus 2 guardo en local
-let btnRecordar = document.getElementById("recordar");
-btnRecordar.addEventListener("click",()=> {
-  let btnRecordar = document.getElementById("recordar");
-    // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
-    console.log("Guardo estilos en local");
-    // obtengo el estilo actual
-    let estilos = document.getElementsByTagName("link")[0].href;
-    // guardo en local el estilo actual
-    localStorage.setItem("estiloActual", JSON.stringify(estilos))
-    // cuando se hace clic sobre el botn cambia la opacidad
-    btnRecordar.style.opacity = 0.4
-    console.log("Se guardara en Local el estilo: " + JSON.parse(localStorage.getItem("estiloActual"))) 
-  }
-
-)
-
-// cada vez que carga la aplicacion va a buscar los estilos al local storage
-window.addEventListener("DOMContentLoaded", () => {
-  // hago referencia a la etiqueta link
-  let estilos = document.getElementsByTagName("link")[0];
-  // obtengo el estilo que del local storage
-  let recuperoEstilos = JSON.parse(localStorage.getItem("estiloActual") ||  estilos.setAttribute("href", "./static/css/estilos.css"));
-  // le seteo a link el estilo que recupere del localstorage
-  estilos.setAttribute("href",recuperoEstilos);
-  // le agrego opacidad al boton recordar
-  btnRecordar.style.opacity= 0.4
-  console.log("Window on load. Cargando estilo recordado desde localSt: " + JSON.parse(localStorage.getItem("estiloActual"))); 
-})
 
 
 //-----------------------------------------------Bonus 3 select
@@ -147,7 +165,7 @@ bonus3.addEventListener("click", (e) => {
   }
 });
 
-//-----------------------------------------------Bonus 3 select
+//-----------------------------------------------Bonus 4 select
 let bonus4 = document.querySelectorAll(".estilos-bonus-4");
 bonus4.forEach((e)=> {
   e.addEventListener("click", (e) => {
