@@ -83,7 +83,7 @@ let funcionQueProgramaEfectoBlurAndFocus = (colorFocus, colorBlur) => {
 // cada vez que se hace clic, se evalua el contenido de la etiqueta link, se llama a la funcion de arriba
 document.addEventListener("click", () => {
   let estilos = document.getElementsByTagName("link")[0].href;
-  let sinCss = estilos.includes("sin");
+  let sinCss = estilos.includes("sin") || estilos.includes("retro") || estilos.includes("futuro");
 
   // si entra al if es porqe no hay estilos
   if (sinCss === true) {
@@ -97,9 +97,6 @@ document.addEventListener("click", () => {
     funcionQueProgramaEfectoBlurAndFocus("#2d3c39", "#4b6963");
   }
 });
-
-
-
 
 
 
