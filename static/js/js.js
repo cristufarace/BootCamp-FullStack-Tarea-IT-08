@@ -1,5 +1,10 @@
-// boton reestablecer
+// variables 
 let boton = document.getElementById("reestablecer_btn");
+let boton2 = document.getElementById("estilos_btn");
+let btnRecordar = document.getElementById("recordar");
+
+
+// boton reestablecer
 boton.addEventListener("click", (e) => {
   document.getElementById("form_afiliacion").reset();
   // console.log("reseteando");
@@ -7,7 +12,6 @@ boton.addEventListener("click", (e) => {
 
 let numero = 0;
 // estilos ordenados
-let boton2 = document.getElementById("estilos_btn");
 boton2.addEventListener("click", () => {
   numero++;
   console.log(numero);
@@ -28,42 +32,8 @@ boton2.addEventListener("click", () => {
   }
 });
 
-
-//-----------------------------------------------Bonus 2 guardo en local----------------------------
-let btnRecordar = document.getElementById("recordar");
-btnRecordar.addEventListener("click",()=> {
-  let btnRecordar = document.getElementById("recordar");
-    // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
-    console.log("Guardo estilos en local");
-    // obtengo el estilo actual
-    let estilos = document.getElementsByTagName("link")[0].href;
-    // guardo en local el estilo actual
-    localStorage.setItem("estiloActual", JSON.stringify(estilos))
-    // cuando se hace clic sobre el botn cambia la opacidad
-    btnRecordar.style.opacity = 0.4
-    console.log("Se guardara en Local el estilo: " + JSON.parse(localStorage.getItem("estiloActual"))) 
-  }
-
-)
-
-// cada vez que carga la aplicacion va a buscar los estilos al local storage
-window.addEventListener("DOMContentLoaded", () => {
-  // hago referencia a la etiqueta link
-  let estilos = document.getElementsByTagName("link")[0];
-  // obtengo el estilo que del local storage
-  let recuperoEstilos = JSON.parse(localStorage.getItem("estiloActual")) ||  estilos.setAttribute("href", "./static/css/estilos.css");
-  // le seteo a link el estilo que recupere del localstorage
-  estilos.setAttribute("href",recuperoEstilos);
-  // le agrego opacidad al boton recordar
-  btnRecordar.style.opacity= 0.4
-  console.log("Window on load. Cargando estilo recordado desde localSt: " + JSON.parse(localStorage.getItem("estiloActual"))); 
-})
-// -------------------------------------------------------fin bonus 2 ----------------------------
-
-
-
 // no cambiar fondo de legend, aplicar blur, y aplicar focus si el estilo actual es SIN ESTILOS CSS
-window.addEventListener("DOMContentLoaded", () => {
+
   let estilos = document.getElementsByTagName("link")[0].href
   let sinCss = estilos.includes("sin")
   console.log(sinCss);
@@ -120,9 +90,10 @@ for (let inp = 0; inp < textarea.length; inp++) {
     legend[0].style.background = "#4b6963";
   });
 }
-  }
-})
+  
 
+
+}
 
 
 
@@ -146,6 +117,36 @@ aleatorios.addEventListener("click", () => {
   }
   
 });
+
+
+
+//-----------------------------------------------Bonus 2 guardo en local----------------------------
+btnRecordar.addEventListener("click",()=> {
+  // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
+  console.log("Guardo estilos en local");
+  // obtengo el estilo actual
+  let estilos = document.getElementsByTagName("link")[0].href;
+  // guardo en local el estilo actual
+  localStorage.setItem("estiloActual", JSON.stringify(estilos))
+  // cuando se hace clic sobre el botn cambia la opacidad
+  btnRecordar.style.opacity = 0.4
+  console.log("Se guardara en Local el estilo: " + JSON.parse(localStorage.getItem("estiloActual"))) 
+}
+
+)
+
+// cada vez que carga la aplicacion va a buscar los estilos al local storage
+window.addEventListener("DOMContentLoaded", () => {
+// hago referencia a la etiqueta link
+let estilos = document.getElementsByTagName("link")[0];
+// obtengo el estilo que del local storage
+let recuperoEstilos = JSON.parse(localStorage.getItem("estiloActual")) ||  estilos.setAttribute("href", "./static/css/estilos.css");
+// le seteo a link el estilo que recupere del localstorage
+estilos.setAttribute("href",recuperoEstilos);
+// le agrego opacidad al boton recordar
+btnRecordar.style.opacity= 0.4
+console.log("Window on load. Cargando estilo recordado desde localSt: " + JSON.parse(localStorage.getItem("estiloActual"))); 
+})
 
 
 
@@ -182,5 +183,8 @@ bonus4.forEach((e)=> {
   });
 
 })
+
+
+
 
 
