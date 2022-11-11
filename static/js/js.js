@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log(sinCss);
 
   // si no tiene una hoja de estilos css no hgas nada
-  if (sinCss == true){
+  if (sinCss == false){
   }
   // si tiene alguna hoja de estilos css entonces........
   else {
