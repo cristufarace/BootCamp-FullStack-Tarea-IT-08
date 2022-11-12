@@ -4,7 +4,7 @@
   --color-fondo-sections: #a5bdb9;
   --color-fuente-header: #ffffff;
   --color-borde-header: #4b6963;
-  --color-hoover-input: #2d3c39;
+  --color-hoover-input: rgba(0, 247, 255, 0.5);
   --color-fondo-botones: #2b3d37;
   --color-puntos: #a6c1b9;
 }

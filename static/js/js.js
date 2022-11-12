@@ -1,7 +1,7 @@
 // variables generales
 let boton = document.getElementById("reestablecer_btn");
 let boton2 = document.getElementById("estilos_btn");
-let btnRecordar = document.getElementById("recordar");
+
 let legend = document.getElementsByTagName("legend");
 
 //logica del boton reestablecer
@@ -10,7 +10,6 @@ boton.addEventListener("click", (e) => {
   // console.log("reseteando");
 });
 let numero = 0;
-
 
 //logica de estilos ordenados
 boton2.addEventListener("click", () => {
@@ -83,7 +82,10 @@ let funcionQueProgramaEfectoBlurAndFocus = (colorFocus, colorBlur) => {
 // cada vez que se hace clic, se evalua el contenido de la etiqueta link, se llama a la funcion de arriba
 document.addEventListener("click", () => {
   let estilos = document.getElementsByTagName("link")[0].href;
-  let sinCss = estilos.includes("sin") || estilos.includes("retro") || estilos.includes("futuro");
+  let sinCss =
+    estilos.includes("sin") ||
+    estilos.includes("retro") ||
+    estilos.includes("futuro");
 
   // si entra al if es porqe no hay estilos
   if (sinCss === true) {
@@ -97,8 +99,6 @@ document.addEventListener("click", () => {
     funcionQueProgramaEfectoBlurAndFocus("#2d3c39", "#4b6963");
   }
 });
-
-
 
 //-----------------------------------------------Bonus 1 estilos aleatorios
 let aleatorios = document.getElementById("aleatorio_btn");
@@ -119,25 +119,11 @@ aleatorios.addEventListener("click", () => {
 });
 
 //-----------------------------------------------Bonus 2 guardo en local----------------------------
-btnRecordar.addEventListener("click", () => {
-  // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
-  console.log("Guardo estilos en local");
-  // obtengo el estilo actual
-  let estilos = document.getElementsByTagName("link")[0].href;
-  // guardo en local el estilo actual
-  localStorage.setItem("estiloActual", JSON.stringify(estilos));
-  // cuando se hace clic sobre el botn cambia la opacidad
-  btnRecordar.style.opacity = 0.4;
-  console.log(
-    "Se guardara en Local el estilo: " +
-      JSON.parse(localStorage.getItem("estiloActual"))
-  );
-});
-
 // cada vez que carga la aplicacion va a buscar los estilos al local storage
 window.addEventListener("DOMContentLoaded", () => {
   // hago referencia a la etiqueta link
   let estilos = document.getElementsByTagName("link")[0];
+  console.log(estilos);
   // obtengo el estilo que del local storage
   let recuperoEstilos =
     JSON.parse(localStorage.getItem("estiloActual")) ||
@@ -150,6 +136,42 @@ window.addEventListener("DOMContentLoaded", () => {
     "Window on load. Cargando estilo recordado desde localSt: " +
       JSON.parse(localStorage.getItem("estiloActual"))
   );
+});
+
+// obtengo referencia al boton recordar
+let btnRecordar = document.getElementById("recordar");
+
+// se ejecuta cuando el boton esta normal
+function recordarEstilos() {
+  // si entra en este else es poruqe el boton NO esta hundido y guarda en local estilos para usarse desp
+  console.log("Guardo estilos en local");
+  // obtengo el estilo actual
+  let estilos = document.getElementsByTagName("link")[0].href;
+  // guardo en local el estilo actual
+  localStorage.setItem("estiloActual", JSON.stringify(estilos));
+  // cuando se hace clic sobre el botn cambia la opacidad
+  btnRecordar.style.opacity = 0.4;
+  console.log(
+    "Se guardara en Local el estilo: " +
+      JSON.parse(localStorage.getItem("estiloActual"))
+  );
+}
+// se ejecuta cuando el boton esta opaco
+function dejarDeRecordar() {
+  btnRecordar.style.opacity = 1;
+  localStorage.setItem("estiloActual", "./static/css/estilos.css");
+  console.log(
+    "Dejar de recordar, ahora el local storage tiene los estilos originales "  
+  );
+}
+
+btnRecordar.addEventListener("click", () => {
+  // console.log(estilosDelBoton);
+  if (btnRecordar.style.opacity == 0.4) {
+    dejarDeRecordar();
+  } else {
+    recordarEstilos();
+  }
 });
 
 //-----------------------------------------------Bonus 3 select

@@ -6,9 +6,9 @@
   --color-fondo-sections: #a5bdb9;
   --color-fuente-header: #ffffff;
   --color-borde-header: #4b6963;
-  --color-hoover-input: #2d3c39;
-  --color-fondo-botones: #2b3d37;
-  --color-puntos: #a6c1b9;
+  --color-hoover-input: #000000;
+  --color-fondo-botones: #ffffff;
+  --color-puntos: #000000;
 }
 /* estilos genericos */
 *{
