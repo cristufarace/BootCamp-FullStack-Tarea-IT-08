@@ -177,31 +177,50 @@ btnRecordar.addEventListener("click", () => {
 //-----------------------------------------------Bonus 3 select
 let bonus3 = document.getElementById("Estilos-Bonus-3");
 bonus3.addEventListener("click", (e) => {
+  if( btnRecordar.style.opacity == 0.4){
+    
   let estilos = document.getElementsByTagName("link")[0];
   if (e.target.value == "Original") {
     estilos.setAttribute("href", "./static/css/estilos.css");
+    recordarEstilos()
   } else if (e.target.value == "Retro") {
     estilos.setAttribute("href", "./static/css/retro.css");
+    recordarEstilos()
   } else if (e.target.value == "Futuro") {
     estilos.setAttribute("href", "./static/css/futuro.css");
+    recordarEstilos()
   } else if (e.target.value == "SinCss") {
     estilos.setAttribute("href", "./static/css/sin.css");
+    recordarEstilos()
   }
+  } else {
+    return
+  }
+
+
 });
 
 //-----------------------------------------------Bonus 4 select
 let bonus4 = document.querySelectorAll(".estilos-bonus-4");
 bonus4.forEach((e) => {
   e.addEventListener("click", (e) => {
+
+    if( btnRecordar.style.opacity == 0.4){
+
     let estilos = document.getElementsByTagName("link")[0];
     if (e.target.value == "Original") {
       estilos.setAttribute("href", "./static/css/estilos.css");
+      recordarEstilos()
     } else if (e.target.value == "Retro") {
       estilos.setAttribute("href", "./static/css/retro.css");
+      recordarEstilos()
     } else if (e.target.value == "Futuro") {
       estilos.setAttribute("href", "./static/css/futuro.css");
+      recordarEstilos()
     } else if (e.target.value == "SinCss") {
       estilos.setAttribute("href", "./static/css/sin.css");
+      recordarEstilos()
     }
+  }
   });
 });
